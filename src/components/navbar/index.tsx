@@ -59,7 +59,6 @@ export default component$(() => {
   return (
     <nav class={`fixed inset-x-0 top-0 z-[100] h-[68px] px-8 flex items-center justify-between transition-[transform,background,border-color,backdrop-filter] duration-300 ${scrolled.value ? 'bg-bg/85 backdrop-blur-xl border-b border-bdr' : ''} ${navHidden.value ? 'nav-hidden' : ''}`}>
       <a href="/" class="font-mono text-base font-semibold text-ink no-underline flex items-center gap-2">
-        <svg class="w-5 h-5 text-pri" viewBox="0 0 80 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
         <span class="text-pri">&lt;</span>Randi<span class="text-pri">/&gt;</span>
       </a>
 

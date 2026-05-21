@@ -33,16 +33,9 @@ export default component$(() => {
   return (
     <section id="education" ref={ref} class="bg-bg-soft">
       <div class="max-w-[1100px] mx-auto py-28 px-6">
-        <div class="flex items-center gap-2 mb-2.5 reveal">
-          <svg class="w-3.5 h-3.5 text-sa shrink-0" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <span class="font-mono text-[11px] tracking-[3px] uppercase text-sa">Latar Belakang</span>
-        </div>
+        <span class="font-mono text-[11px] tracking-[3px] uppercase text-sa block mb-2.5 reveal">Latar Belakang</span>
         <h2 class="text-[clamp(26px,4vw,40px)] font-extrabold text-ink mb-3.5 leading-[1.15] reveal d-100">Pendidikan & Sertifikasi</h2>
-        <div class="flex items-center gap-1.5 mb-16 reveal d-200">
-          <svg class="w-4 h-4 text-sa" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <svg class="w-3 h-3 text-sa opacity-60" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <svg class="w-2 h-2 text-sa opacity-30" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-        </div>
+        <div class="w-[52px] h-[3px] bg-sa rounded-sm mb-16 reveal d-200" />
 
         <div class="grid grid-cols-2 gap-6 max-[640px]:grid-cols-1">
           <div class="bg-surf border border-bdr rounded-2xl p-7 flex flex-col gap-3 transition-all duration-300 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-sa before:scale-x-0 before:transition-transform before:duration-300 before:origin-left hover:before:scale-x-100 hover:border-sa/40 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgb(0_0_0/.4)] reveal-scale d-200">

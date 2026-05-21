@@ -36,16 +36,9 @@ export default component$(() => {
   return (
     <section id="portfolio" ref={ref} class="bg-bg-soft">
       <div class="max-w-[1100px] mx-auto py-28 px-6">
-        <div class="flex items-center gap-2 mb-2.5 reveal">
-          <svg class="w-3.5 h-3.5 text-sa shrink-0" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <span class="font-mono text-[11px] tracking-[3px] uppercase text-sa">Portofolio</span>
-        </div>
+        <span class="font-mono text-[11px] tracking-[3px] uppercase text-sa block mb-2.5 reveal">Portofolio</span>
         <h2 class="text-[clamp(26px,4vw,40px)] font-extrabold text-ink mb-3.5 leading-[1.15] reveal d-100">Proyek Unggulan</h2>
-        <div class="flex items-center gap-1.5 mb-16 reveal d-200">
-          <svg class="w-4 h-4 text-sa" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <svg class="w-3 h-3 text-sa opacity-60" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <svg class="w-2 h-2 text-sa opacity-30" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-        </div>
+        <div class="w-[52px] h-[3px] bg-sa rounded-sm mb-16 reveal d-200" />
 
         <div class="relative">
           <div class="preview-clamp" style="--ph:310px;--pm:50%">

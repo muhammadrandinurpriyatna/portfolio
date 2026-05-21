@@ -12,10 +12,7 @@ export default component$(() => (
           </svg>
           Kembali
         </a>
-        <div class="flex items-center gap-2 mb-2.5">
-          <svg class="w-3.5 h-3.5 text-sa shrink-0" viewBox="0 0 80 80" fill="currentColor"><path d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/></svg>
-          <span class="font-mono text-[11px] tracking-[3px] uppercase text-sa">Tentang Saya</span>
-        </div>
+        <span class="block font-mono text-[11px] tracking-[3px] uppercase text-sa mb-2.5">Tentang Saya</span>
         <h1 class="text-[clamp(28px,4vw,44px)] font-extrabold text-ink leading-[1.1]">Siapa <span class="text-gradient">Randi?</span></h1>
       </div>
     </div>
