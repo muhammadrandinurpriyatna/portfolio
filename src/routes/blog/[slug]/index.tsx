@@ -42,13 +42,13 @@ export default component$(() => {
       </div>
 
       {/* Post */}
-      <article class="max-w-[760px] mx-auto px-6 pb-20">
-        {/* Thumb banner */}
-        <div class={`h-[280px] flex items-center justify-center relative ${p.grad}`}>
+      <article class="max-w-[760px] mx-auto pb-20">
+        {/* Thumb banner — full width, no side padding */}
+        <div class={`h-[280px] flex items-center justify-center relative overflow-hidden ${p.grad}`}>
           <span class="text-[80px]">{p.emoji}</span>
         </div>
 
-        <div class="pt-10">
+        <div class="px-6 pt-10">
           {/* Header */}
           <header class="mb-12">
             <span class="inline-block font-mono text-[11px] uppercase tracking-[1.5px] px-3 py-1 rounded-md bg-pri/10 border border-pri/20 text-pri mb-4">{p.category}</span>
