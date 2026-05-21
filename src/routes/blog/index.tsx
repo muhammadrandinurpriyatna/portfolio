@@ -50,7 +50,7 @@ export default component$(() => {
             {ALL_CATS.map((cat) => (
               <button
                 key={cat}
-                class={`font-mono text-xs px-4 py-1.5 rounded-lg border cursor-pointer transition-all hover:bg-sa/12 hover:border-sa hover:text-sa ${active.value === cat ? 'bg-sa/12 border-sa text-sa' : 'border-bdr-hi bg-transparent text-ink-2'}`}
+                class={`font-mono text-xs px-4 py-1.5 rounded-lg border cursor-pointer transition-all hover:bg-sa/12 hover:border-sa hover:text-sa hover:scale-110 hover:rotate-[5deg] ${active.value === cat ? 'bg-sa/12 border-sa text-sa' : 'border-bdr-hi bg-transparent text-ink-2'}`}
                 onClick$={() => setActive(cat)}
               >
                 {cat}

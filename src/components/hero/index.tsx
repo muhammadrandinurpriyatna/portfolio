@@ -89,31 +89,31 @@ export default component$(() => {
           </p>
 
           <div class="flex gap-3.5 flex-wrap mb-11 animate-fade-up [animation-delay:.5s]">
-            <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold bg-grad text-[#0a0a0a] cursor-pointer no-underline border-0 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgb(var(--pri)/0.35)]">
+            <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold bg-grad text-[#0a0a0a] cursor-pointer no-underline border-0 transition-all hover:scale-105 hover:shadow-[0_10px_28px_rgb(var(--pri)/0.35)]">
               Hubungi Saya
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="#experience" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 cursor-pointer no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5">
+            <a href="#experience" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 cursor-pointer no-underline transition-all hover:border-pri hover:text-pri hover:scale-105">
               Lihat Pengalaman
             </a>
           </div>
 
           <div class="flex gap-2.5 animate-fade-up [animation-delay:.6s]">
-            <a href="mailto:muhammadrandinurpriyatna@gmail.com" class="w-11 h-11 flex items-center justify-center bg-surf border border-bdr rounded-xl text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgb(var(--pri)/0.2)]" title="Email">
+            <a href="mailto:muhammadrandinurpriyatna@gmail.com" class="w-11 h-11 flex items-center justify-center bg-surf border border-bdr rounded-xl text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:rotate-[20deg] hover:scale-110 hover:shadow-[0_8px_20px_rgb(var(--pri)/0.2)]" title="Email">
               <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
             </a>
-            <a href="https://linkedin.com/in/randiprytn" target="_blank" rel="noreferrer" class="w-11 h-11 flex items-center justify-center bg-surf border border-bdr rounded-xl text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgb(var(--pri)/0.2)]" title="LinkedIn">
+            <a href="https://linkedin.com/in/randiprytn" target="_blank" rel="noreferrer" class="w-11 h-11 flex items-center justify-center bg-surf border border-bdr rounded-xl text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:rotate-[20deg] hover:scale-110 hover:shadow-[0_8px_20px_rgb(var(--pri)/0.2)]" title="LinkedIn">
               <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-            <a href="tel:+6282110474856" class="w-11 h-11 flex items-center justify-center bg-surf border border-bdr rounded-xl text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgb(var(--pri)/0.2)]" title="Telepon">
+            <a href="tel:+6282110474856" class="w-11 h-11 flex items-center justify-center bg-surf border border-bdr rounded-xl text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:rotate-[20deg] hover:scale-110 hover:shadow-[0_8px_20px_rgb(var(--pri)/0.2)]" title="Telepon">
               <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>

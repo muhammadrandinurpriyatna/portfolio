@@ -97,7 +97,7 @@ export default component$(() => {
           </svg>
         </button>
 
-        <a href={isHome ? '#contact' : '/#contact'} class="text-[13px] font-semibold text-pri no-underline px-[18px] py-2 border border-pri/30 rounded-lg transition-all hover:bg-pri/10 hover:border-pri hover:-translate-y-0.5">
+        <a href={isHome ? '#contact' : '/#contact'} class="text-[13px] font-semibold text-pri no-underline px-[18px] py-2 border border-pri/30 rounded-lg transition-all hover:bg-pri/10 hover:border-pri hover:scale-105">
           Contact
         </a>
       </div>
