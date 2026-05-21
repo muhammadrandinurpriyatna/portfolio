@@ -59,6 +59,12 @@ export default component$(() => {
         <svg class="puzzle-piece puzzle-piece-5" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
           <path fill="currentColor" d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/>
         </svg>
+        <svg class="puzzle-piece puzzle-piece-6" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="currentColor" stroke-width="3" d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/>
+        </svg>
+        <svg class="puzzle-piece puzzle-piece-7" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M10,10 L33,10 Q33,2 40,2 Q47,2 47,10 L70,10 L70,33 Q78,33 78,40 Q78,47 70,47 L70,70 L47,70 Q47,62 40,62 Q33,62 33,70 L10,70 L10,47 Q2,47 2,40 Q2,33 10,33 Z"/>
+        </svg>
       </div>
 
       {/* Content */}
