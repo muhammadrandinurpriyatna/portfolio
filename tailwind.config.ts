@@ -1,0 +1,68 @@
+import type { Config } from 'tailwindcss';
+
+export default {
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      colors: {
+        bg:      { DEFAULT: 'rgb(var(--bg) / <alpha-value>)', soft: 'rgb(var(--bg2) / <alpha-value>)' },
+        surf:    { DEFAULT: 'rgb(var(--surf) / <alpha-value>)', soft: 'rgb(var(--surf2) / <alpha-value>)' },
+        bdr:     { DEFAULT: 'rgb(var(--bdr) / <alpha-value>)', hi: 'rgb(var(--bdr2) / <alpha-value>)' },
+        pri:     { DEFAULT: 'rgb(var(--pri) / <alpha-value>)', dark: 'rgb(var(--prid) / <alpha-value>)' },
+        sec:     'rgb(var(--sec) / <alpha-value>)',
+        ter:     'rgb(var(--ter) / <alpha-value>)',
+        sa:      'rgb(var(--sa) / <alpha-value>)',
+        ink:     { DEFAULT: 'rgb(var(--ink) / <alpha-value>)', 2: 'rgb(var(--ink2) / <alpha-value>)', 3: 'rgb(var(--ink3) / <alpha-value>)' },
+      },
+      animation: {
+        'fade-up':     'fadeInUp .8s ease both',
+        'fade-in':     'fadeIn 1s ease both',
+        'fade-left':   'fadeInLeft .8s ease both',
+        'fade-right':  'fadeInRight .8s ease both',
+        'scale-in':    'scaleIn .9s ease both',
+        'float':       'float 9s ease-in-out infinite',
+        'float-r':     'floatRotate 8s ease-in-out infinite',
+        'float-r2':    'floatRotate 11s ease-in-out infinite reverse',
+        'float-r3':    'floatRotate 9s ease-in-out infinite',
+        'float-r4':    'floatRotate 10s ease-in-out infinite',
+        'float-r5':    'floatRotate 7s ease-in-out infinite reverse',
+        'grad':        'gradShift 5s ease infinite',
+        'spin-slow':   'rotateSlow 12s linear infinite',
+        'blink':       'blink 1s step-end infinite',
+        'scroll-bob':  'scrollBob 2s ease-in-out infinite',
+        'snap-in':     'snapIn .55s cubic-bezier(.34,1.56,.64,1) both',
+        'dot-pop':     'dotPop .4s ease both',
+      },
+      keyframes: {
+        fadeInUp:    { from: { opacity:'0', transform:'translateY(40px)' }, to: { opacity:'1', transform:'translateY(0)' } },
+        fadeInLeft:  { from: { opacity:'0', transform:'translateX(-40px)' }, to: { opacity:'1', transform:'translateX(0)' } },
+        fadeInRight: { from: { opacity:'0', transform:'translateX(40px)' }, to: { opacity:'1', transform:'translateX(0)' } },
+        fadeIn:      { from: { opacity:'0' }, to: { opacity:'1' } },
+        scaleIn:     { from: { opacity:'0', transform:'scale(.88)' }, to: { opacity:'1', transform:'scale(1)' } },
+        snapIn:      { '0%': { opacity:'0', transform:'scale(.82) rotate(-4deg)' }, '65%': { opacity:'1', transform:'scale(1.04) rotate(1deg)' }, '85%': { transform:'scale(.98) rotate(-.5deg)' }, '100%': { opacity:'1', transform:'scale(1) rotate(0deg)' } },
+        float:       { '0%,100%': { transform:'translateY(0)' }, '50%': { transform:'translateY(-14px)' } },
+        floatRotate: { '0%': { transform:'translateY(0) rotate(0deg)' }, '33%': { transform:'translateY(-10px) rotate(8deg)' }, '66%': { transform:'translateY(-4px) rotate(-4deg)' }, '100%': { transform:'translateY(0) rotate(0deg)' } },
+        gradShift:   { '0%,100%': { backgroundPosition:'0% 50%' }, '50%': { backgroundPosition:'100% 50%' } },
+        rotateSlow:  { from: { transform:'rotate(0deg)' }, to: { transform:'rotate(360deg)' } },
+        blink:       { '0%,100%': { opacity:'1' }, '50%': { opacity:'0' } },
+        scrollBob:   { '0%,100%': { transform:'translateX(-50%) translateY(0)', opacity:'1' }, '80%': { transform:'translateX(-50%) translateY(14px)', opacity:'0' } },
+        dotPop:      { from: { transform:'scale(0)', opacity:'0' }, to: { transform:'scale(1)', opacity:'1' } },
+      },
+      boxShadow: {
+        'glow-pri': '0 0 20px rgb(var(--pri) / 0.3)',
+        'glow-sa':  '0 0 16px rgb(var(--sa) / 0.4)',
+        'card':     '0 20px 44px rgb(0 0 0 / 0.5)',
+        'card-sm':  '0 12px 28px rgb(0 0 0 / 0.35)',
+      },
+      maxWidth: { section: '1100px' },
+      transitionProperty: {
+        'theme': 'background-color, color, border-color, box-shadow',
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
