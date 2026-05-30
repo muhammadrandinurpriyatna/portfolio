@@ -74,7 +74,7 @@ export default component$(() => {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 hover:-translate-y-1.5 hover:border-sa/40 hover:shadow-card reveal-scale group"
+                class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 hover:-translate-y-1.5 hover:border-sa/40 hover:shadow-card reveal-scale visible group"
                 style={`transition-delay:${i * 80}ms`}
               >
                 <div class={`relative h-[140px] flex items-center justify-center overflow-hidden shrink-0 ${post.grad}`}>

@@ -46,6 +46,11 @@ export default component$(() => {
   });
 
   const setFilter = $((cat: string) => { activeFilter.value = cat; });
+  const filteredProjects = PROJECTS.filter(
+    (p) =>
+      activeFilter.value === text(locale.value, 'Semua', 'All') ||
+      activeFilter.value === (locale.value === 'id' ? p.category : p.categoryEn),
+  );
 
   return (
     <section id="portfolio" ref={ref} class="bg-bg-soft">
@@ -63,11 +68,11 @@ export default component$(() => {
         </div>
 
         <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
-          {PROJECTS.map((p, i) => (
+          {filteredProjects.map((p, i) => (
             <Link
               key={p.title}
               href={`/portfolio/${p.slug}`}
-              class={`bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 relative hover:-translate-y-1.5 hover:border-sa/45 hover:shadow-[0_24px_48px_rgb(0_0_0/.45)] reveal-scale group after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:translate-y-1/2 after:scale-0 after:w-3.5 after:h-3.5 after:rounded-full after:bg-sa after:shadow-[0_0_16px_rgb(var(--sa))] after:transition-[transform,opacity] after:duration-300 after:z-[2] hover:after:scale-100 hover:after:opacity-100 ${activeFilter.value !== text(locale.value, 'Semua', 'All') && activeFilter.value !== (locale.value === 'id' ? p.category : p.categoryEn) ? 'hidden-card' : ''}`}
+              class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 relative hover:-translate-y-1.5 hover:border-sa/45 hover:shadow-[0_24px_48px_rgb(0_0_0/.45)] reveal-scale visible group after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:translate-y-1/2 after:scale-0 after:w-3.5 after:h-3.5 after:rounded-full after:bg-sa after:shadow-[0_0_16px_rgb(var(--sa))] after:transition-[transform,opacity] after:duration-300 after:z-[2] hover:after:scale-100 hover:after:opacity-100"
               style={`transition-delay:${i * 80}ms`}
             >
               <div class="relative h-[180px] overflow-hidden shrink-0">
