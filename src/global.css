@@ -157,6 +157,10 @@ html.light body::before {
   /* Light mode orbs */
   html.light .orb { opacity: .06 !important; }
   html.light .puzzle-piece { opacity: .09 !important; }
+  html.light .skill-tag {
+    background-color: rgb(var(--sa) / 0.1);
+    border-color: rgb(var(--sa) / 0.42);
+  }
 
   /* Puzzle piece floaters */
   .puzzle-piece { position: absolute; pointer-events: none; opacity: .13; filter: drop-shadow(0 0 12px currentColor); }

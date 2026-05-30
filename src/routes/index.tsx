@@ -25,14 +25,14 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Muhammad Randi Nur Priyatna — Full Stack Developer',
+  title: 'Muhammad Randi Nur Priyatna — Pengembang Full Stack',
   meta: [
     {
       name: 'description',
-      content: 'Full Stack Developer dari Bogor, Indonesia. Spesialis Vue.js, React, Laravel, dan ekosistem web modern.',
+      content: 'Pengembang Full Stack dari Bogor, Indonesia. Spesialis Vue.js, React, Laravel, dan ekosistem web modern.',
     },
     { name: 'author', content: 'Muhammad Randi Nur Priyatna' },
-    { property: 'og:title', content: 'Muhammad Randi Nur Priyatna — Full Stack Developer' },
-    { property: 'og:description', content: 'Full Stack Developer dari Bogor, Indonesia.' },
+    { property: 'og:title', content: 'Muhammad Randi Nur Priyatna — Pengembang Full Stack' },
+    { property: 'og:description', content: 'Pengembang Full Stack dari Bogor, Indonesia.' },
   ],
 };

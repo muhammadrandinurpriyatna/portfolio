@@ -1,11 +1,14 @@
 import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { useLocation } from '@builder.io/qwik-city';
+import LanguageSwitcher from '../language-switcher';
+import { text, useLocale } from '../../contexts/locale-context';
 
 export default component$(() => {
   const scrolled = useSignal(false);
   const navHidden = useSignal(false);
   const isDark = useSignal(true);
   const loc = useLocation();
+  const { locale } = useLocale();
 
   const isHome = loc.url.pathname === '/';
 
@@ -45,10 +48,7 @@ export default component$(() => {
   });
 
   const links = [
-    { href: '/about',      label: 'About'      },
-    { href: '/skills',     label: 'Skills'     },
-    { href: '/experience', label: 'Experience' },
-    { href: '/portfolio',  label: 'Projects'   },
+    { href: '/portfolio',  label: text(locale.value, 'Proyek', 'Projects')   },
     { href: '/blog',       label: 'Blog'       },
   ];
 
@@ -79,7 +79,7 @@ export default component$(() => {
         <button
           class="w-10 h-10 flex items-center justify-center bg-surf border border-bdr-hi rounded-xl cursor-pointer text-ink-2 transition-all hover:border-pri hover:text-pri hover:rotate-[20deg] hover:scale-110"
           onClick$={toggleTheme}
-          aria-label="Toggle theme"
+          aria-label={text(locale.value, 'Ganti tema', 'Toggle theme')}
         >
           <svg class="icon-moon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
@@ -97,8 +97,10 @@ export default component$(() => {
           </svg>
         </button>
 
+        <LanguageSwitcher />
+
         <a href={isHome ? '#contact' : '/#contact'} class="text-[13px] font-semibold text-pri no-underline px-[18px] py-2 border border-pri/30 rounded-lg transition-all hover:bg-pri/10 hover:border-pri hover:scale-105">
-          Contact
+          {text(locale.value, 'Kontak', 'Contact')}
         </a>
       </div>
 
