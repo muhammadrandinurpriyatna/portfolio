@@ -2,6 +2,7 @@ import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { type DocumentHead } from '@builder.io/qwik-city';
 import { BLOG_POSTS } from '../../data/blog';
 import { text, useLocale } from '../../contexts/locale-context';
+import { breadcrumbSchema, buildSeoHead } from '../../utils/seo';
 
 const categories = (locale: 'id' | 'en') => [
   locale === 'id' ? 'Semua' : 'All',
@@ -107,7 +108,26 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
+export const head: DocumentHead = buildSeoHead({
+  title: 'Blog & Artikel',
+  description: 'Tulisan Muhammad Randi Nur Priyatna tentang pengembangan web, frontend, backend, Laravel, Vue.js, React, performa web, produktivitas, dan perjalanan karir developer.',
+  path: '/blog',
+  keywords: ['Blog Developer', 'Artikel Web Development', 'Laravel', 'Vue.js', 'React', 'Frontend', 'Backend', 'Karir Developer'],
+  scripts: [
+    breadcrumbSchema([
+      { name: 'Beranda', path: '/' },
+      { name: 'Blog', path: '/blog' },
+    ]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Blog Muhammad Randi Nur Priyatna',
+      description: 'Tulisan tentang pengembangan web, teknologi, dan karir developer.',
+    },
+  ],
+});
+
+const oldHead: DocumentHead = {
   title: 'Blog — Muhammad Randi Nur Priyatna',
   meta: [{ name: 'description', content: 'Tulisan tentang pengembangan web, tips karir, dan pengalaman sebagai pengembang.' }],
 };

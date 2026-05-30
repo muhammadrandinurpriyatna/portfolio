@@ -3,6 +3,7 @@ import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
 import { EXPERIENCES } from '../../../data/experience';
 import { useLocale } from '../../../contexts/locale-context';
 import { pick } from '../../../data/localized';
+import { breadcrumbSchema, buildSeoHead } from '../../../utils/seo';
 
 export const useExperience = routeLoader$(({ params, status }) => {
   const experience = EXPERIENCES.find((item) => item.slug === params.slug);
@@ -152,6 +153,40 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = ({ resolveValue }) => {
+  const experience = resolveValue(useExperience);
+  if (!experience) return buildSeoHead({
+    title: 'Pengalaman Tidak Ditemukan',
+    description: 'Halaman pengalaman kerja tidak ditemukan.',
+    path: '/',
+  });
+  const role = pick('id', experience.role);
+  return buildSeoHead({
+    title: `${role} di ${experience.company}`,
+    description: `${role} di ${experience.company}, ${experience.location}, periode ${experience.date}.`,
+    path: `/experience/${experience.slug}`,
+    keywords: [role, experience.company, 'Pengalaman Kerja', 'Full Stack Developer', 'Frontend Developer', 'IT Consultant'],
+    scripts: [
+      breadcrumbSchema([
+        { name: 'Beranda', path: '/' },
+        { name: 'Pengalaman', path: '/#experience' },
+        { name: experience.company, path: `/experience/${experience.slug}` },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        name: `${role} - ${experience.company}`,
+        description: `${role} di ${experience.company}, ${experience.date}.`,
+        about: {
+          '@type': 'Person',
+          name: 'Muhammad Randi Nur Priyatna',
+          jobTitle: role,
+        },
+      },
+    ],
+  });
+};
+
+const oldHead: DocumentHead = ({ resolveValue }) => {
   const experience = resolveValue(useExperience);
   if (!experience) return { title: 'Pengalaman Tidak Ditemukan' };
   return {

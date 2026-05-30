@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
 import { PROJECTS } from '../../../data/portfolio';
 import { text, useLocale } from '../../../contexts/locale-context';
+import { breadcrumbSchema, buildSeoHead } from '../../../utils/seo';
 
 export const useProject = routeLoader$(({ params, status }) => {
   const project = PROJECTS.find((p) => p.slug === params.slug);
@@ -87,11 +88,11 @@ export default component$(() => {
 
           <div class="prose">
             <h2>{text(locale.value, 'Ringkasan', 'Overview')}</h2>
-            <p>{locale.value === 'id' ? p.desc : p.descEn}</p>
+            <p>{locale.value === 'id' ? p.overview : p.overviewEn}</p>
             <p>
               {locale.value === 'id'
-                ? 'Proyek ini berfokus pada tampilan yang jelas, struktur fitur yang mudah dipahami, dan pengalaman penggunaan yang tetap nyaman di berbagai ukuran layar.'
-                : 'This project focuses on clear visuals, understandable feature structure, and a comfortable user experience across screen sizes.'}
+                ? 'Konten detail pada halaman ini masih menggunakan data dummy yang disusun agar relevan dengan karakter dan kebutuhan masing-masing project.'
+                : 'The detail content on this page still uses dummy data prepared to stay relevant to each project character and requirement.'}
             </p>
 
             <h2>{text(locale.value, 'Teknologi yang Digunakan', 'Tech Stack')}</h2>
@@ -100,11 +101,7 @@ export default component$(() => {
             </p>
 
             <h2>{text(locale.value, 'Peran', 'Role')}</h2>
-            <p>
-              {locale.value === 'id'
-                ? 'Pengerjaan mencakup pengembangan antarmuka, penyesuaian alur fitur, integrasi kebutuhan teknis, serta perapian responsivitas agar proyek siap digunakan dan dikembangkan lebih lanjut.'
-                : 'The work covered interface development, feature flow adjustments, technical integration, and responsive refinements so the project was ready to use and extend.'}
-            </p>
+            <p>{locale.value === 'id' ? p.role : p.roleEn}</p>
           </div>
 
           <div class="flex justify-between items-center pt-10 mt-10 border-t border-bdr flex-wrap gap-4">
@@ -159,6 +156,38 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = ({ resolveValue }) => {
+  const project = resolveValue(useProject);
+  if (!project) return buildSeoHead({
+    title: 'Proyek Tidak Ditemukan',
+    description: 'Halaman proyek tidak ditemukan.',
+    path: '/portfolio',
+  });
+  return buildSeoHead({
+    title: `${project.title} - Studi Kasus Proyek`,
+    description: project.desc,
+    path: `/portfolio/${project.slug}`,
+    keywords: [project.title, project.category, ...project.tags, 'Portfolio Project', 'Web Development'],
+    scripts: [
+      breadcrumbSchema([
+        { name: 'Beranda', path: '/' },
+        { name: 'Portofolio', path: '/portfolio' },
+        { name: project.title, path: `/portfolio/${project.slug}` },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: project.title,
+        alternateName: project.titleEn,
+        description: project.desc,
+        creator: { '@type': 'Person', name: 'Muhammad Randi Nur Priyatna' },
+        keywords: project.tags.join(', '),
+        genre: project.category,
+      },
+    ],
+  });
+};
+
+const oldHead: DocumentHead = ({ resolveValue }) => {
   const project = resolveValue(useProject);
   if (!project) return { title: 'Proyek Tidak Ditemukan' };
   return {

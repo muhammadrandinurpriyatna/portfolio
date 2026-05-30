@@ -8,6 +8,7 @@ import PortfolioPreview from '../components/portfolio/preview';
 import BlogPreview from '../components/blog/preview';
 import EducationPreview from '../components/education/preview';
 import Contact from '../components/contact';
+import { buildSeoHead, personSchema, websiteSchema } from '../utils/seo';
 
 export default component$(() => {
   return (
@@ -24,15 +25,11 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: 'Muhammad Randi Nur Priyatna — Pengembang Full Stack',
-  meta: [
-    {
-      name: 'description',
-      content: 'Pengembang Full Stack dari Bogor, Indonesia. Spesialis Vue.js, React, Laravel, dan ekosistem web modern.',
-    },
-    { name: 'author', content: 'Muhammad Randi Nur Priyatna' },
-    { property: 'og:title', content: 'Muhammad Randi Nur Priyatna — Pengembang Full Stack' },
-    { property: 'og:description', content: 'Pengembang Full Stack dari Bogor, Indonesia.' },
-  ],
-};
+export const head: DocumentHead = buildSeoHead({
+  title: 'Muhammad Randi Nur Priyatna - Pengembang Full Stack',
+  description: 'Portfolio Muhammad Randi Nur Priyatna, pengembang full stack dari Bogor, Indonesia, dengan pengalaman membangun aplikasi web, sistem logistik, HRIS, POS, dan company profile.',
+  path: '/',
+  type: 'profile',
+  keywords: ['Muhammad Randi Nur Priyatna', 'Full Stack Developer', 'Frontend Developer', 'Backend Developer', 'Laravel', 'Vue.js', 'React', 'Qwik', 'Portfolio Developer Indonesia'],
+  scripts: [personSchema(), websiteSchema()],
+});

@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { type DocumentHead } from '@builder.io/qwik-city';
 import Portfolio from '../../components/portfolio';
 import { text, useLocale } from '../../contexts/locale-context';
+import { breadcrumbSchema, buildSeoHead } from '../../utils/seo';
 
 export default component$(() => {
   const { locale } = useLocale();
@@ -25,7 +26,21 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: 'Portfolio — Muhammad Randi Nur Priyatna',
-  meta: [{ name: 'description', content: 'Kumpulan proyek web yang pernah saya kerjakan.' }],
-};
+export const head: DocumentHead = buildSeoHead({
+  title: 'Portofolio Proyek',
+  description: 'Kumpulan proyek yang pernah dikerjakan Muhammad Randi Nur Priyatna, termasuk sistem logistik, HRIS, jurnal akuntansi, POS, company profile, campaign profile, dan mini games HTML5.',
+  path: '/portfolio',
+  keywords: ['Portofolio Randi', 'Project Web Developer', 'Sistem Logistik', 'HRIS', 'POS', 'Company Profile', 'Mini Games HTML5'],
+  scripts: [
+    breadcrumbSchema([
+      { name: 'Beranda', path: '/' },
+      { name: 'Portofolio', path: '/portfolio' },
+    ]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Portofolio Proyek',
+      description: 'Kumpulan proyek web dan sistem digital Muhammad Randi Nur Priyatna.',
+    },
+  ],
+});

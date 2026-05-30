@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { type DocumentHead } from '@builder.io/qwik-city';
 import Education from '../../components/education';
 import { text, useLocale } from '../../contexts/locale-context';
+import { breadcrumbSchema, buildSeoHead } from '../../utils/seo';
 
 export default component$(() => {
   const { locale } = useLocale();
@@ -25,7 +26,20 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
+export const head: DocumentHead = buildSeoHead({
+  title: 'Pendidikan & Sertifikasi',
+  description: 'Riwayat pendidikan dan sertifikasi Muhammad Randi Nur Priyatna sebagai pengembang full stack dan profesional teknologi web.',
+  path: '/education',
+  keywords: ['Pendidikan Developer', 'Sertifikasi Developer', 'SMK Wikrama Bogor', 'Muhammad Randi Nur Priyatna'],
+  scripts: [
+    breadcrumbSchema([
+      { name: 'Beranda', path: '/' },
+      { name: 'Pendidikan', path: '/education' },
+    ]),
+  ],
+});
+
+const oldHead: DocumentHead = {
   title: 'Pendidikan — Muhammad Randi Nur Priyatna',
   meta: [{ name: 'description', content: 'Riwayat pendidikan dan sertifikasi profesional.' }],
 };

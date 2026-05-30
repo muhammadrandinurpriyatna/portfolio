@@ -140,7 +140,7 @@ export default component$(() => {
             <span class="text-gradient">Nur Priyatna</span>
           </h1>
 
-          <div class="font-mono text-[clamp(15px,2vw,20px)] text-ink-2 mb-[26px] animate-fade-up [animation-delay:.3s] flex items-center gap-1 flex-wrap">
+          <div class="font-mono text-[clamp(15px,2vw,20px)] text-ink-2 mb-[26px] animate-fade-up [animation-delay:.3s] flex items-center justify-center lg:justify-start gap-1 flex-wrap">
             <span class="text-pri">&lt;</span>
             <span class="text-sec">{typed.value}</span>
             <span class="text-pri font-light animate-blink">|</span>

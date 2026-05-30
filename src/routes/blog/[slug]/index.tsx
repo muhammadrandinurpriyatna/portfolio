@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { type DocumentHead, routeLoader$, useLocation } from '@builder.io/qwik-city';
 import { BLOG_POSTS } from '../../../data/blog';
 import { text, useLocale } from '../../../contexts/locale-context';
+import { breadcrumbSchema, buildSeoHead } from '../../../utils/seo';
 
 export const usePost = routeLoader$(({ params, status }) => {
   const post = BLOG_POSTS.find((p) => p.slug === params.slug);
@@ -148,6 +149,41 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = ({ resolveValue }) => {
+  const post = resolveValue(usePost);
+  if (!post) return buildSeoHead({
+    title: 'Artikel Tidak Ditemukan',
+    description: 'Halaman artikel tidak ditemukan.',
+    path: '/blog',
+  });
+  return buildSeoHead({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    type: 'article',
+    keywords: [...post.tags, ...post.tagsEn, 'Web Development', 'Blog Developer'],
+    scripts: [
+      breadcrumbSchema([
+        { name: 'Beranda', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: post.title, path: `/blog/${post.slug}` },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        alternativeHeadline: post.titleEn,
+        description: post.excerpt,
+        inLanguage: 'id-ID',
+        author: { '@type': 'Person', name: 'Muhammad Randi Nur Priyatna' },
+        publisher: { '@type': 'Person', name: 'Muhammad Randi Nur Priyatna' },
+        mainEntityOfPage: `/blog/${post.slug}`,
+        keywords: post.tags.join(', '),
+      },
+    ],
+  });
+};
+
+const oldHead: DocumentHead = ({ resolveValue }) => {
   const post = resolveValue(usePost);
   if (!post) return { title: 'Artikel Tidak Ditemukan' };
   return {
