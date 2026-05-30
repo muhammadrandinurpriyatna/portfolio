@@ -1,5 +1,5 @@
 import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
-import { type DocumentHead } from '@builder.io/qwik-city';
+import { Link, type DocumentHead } from '@builder.io/qwik-city';
 import { BLOG_POSTS } from '../../data/blog';
 import { text, useLocale } from '../../contexts/locale-context';
 import { breadcrumbSchema, buildSeoHead } from '../../utils/seo';
@@ -44,12 +44,12 @@ export default component$(() => {
     <>
       <div class="pt-[100px] pb-10 bg-bg border-b border-bdr">
         <div class="max-w-[1100px] mx-auto px-6">
-          <a href="/" class="inline-flex items-center gap-2 text-[13px] text-ink-3 no-underline font-mono mb-6 transition-all group hover:text-sa">
+          <Link href="/" class="inline-flex items-center gap-2 text-[13px] text-ink-3 no-underline font-mono mb-6 transition-all group hover:text-sa">
             <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5M12 5l-7 7 7 7" />
             </svg>
             {text(locale.value, 'Kembali', 'Back')}
-          </a>
+          </Link>
           <span class="block font-mono text-[11px] tracking-[3px] uppercase text-sa mb-2.5">{text(locale.value, 'Tulisan', 'Writing')}</span>
           <h1 class="text-[clamp(28px,4vw,44px)] font-extrabold text-ink leading-[1.1]">{text(locale.value, 'Blog & ', 'Blog & ')}<span class="text-gradient">{text(locale.value, 'Artikel', 'Articles')}</span></h1>
         </div>
@@ -71,7 +71,7 @@ export default component$(() => {
 
           <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
             {filtered.map((post, i) => (
-              <a
+              <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
                 class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 hover:-translate-y-1.5 hover:border-sa/40 hover:shadow-card reveal-scale group"
@@ -99,7 +99,7 @@ export default component$(() => {
                     ))}
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { EXPERIENCES } from "../../data/experience";
 import { pick } from "../../data/localized";
 import { text, useLocale } from "../../contexts/locale-context";
@@ -91,7 +92,7 @@ export default component$(() => {
           <div class="absolute left-[10px] top-[10px] bottom-0 w-0.5 bg-gradient-to-b from-sa via-sa/20 to-transparent" />
 
           {EXPERIENCES.map((exp) => (
-            <a
+            <Link
               key={exp.slug}
               href={`/experience/${exp.slug}`}
               class="timeline-item relative mb-[52px] group block no-underline text-inherit"
@@ -124,7 +125,7 @@ export default component$(() => {
                   ))}
                 </ul>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

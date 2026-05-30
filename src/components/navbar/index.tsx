@@ -1,5 +1,5 @@
 import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
-import { useLocation } from '@builder.io/qwik-city';
+import { Link, useLocation } from '@builder.io/qwik-city';
 import LanguageSwitcher from '../language-switcher';
 import { text, useLocale } from '../../contexts/locale-context';
 
@@ -64,19 +64,19 @@ export default component$(() => {
   return (
     <nav class={`fixed inset-x-0 top-0 z-[100] min-h-[68px] px-4 sm:px-6 lg:px-8 transition-[transform,background,border-color,backdrop-filter] duration-300 ${scrolled.value || menuOpen.value ? 'bg-bg/90 backdrop-blur-xl border-b border-bdr' : ''} ${navHidden.value && !menuOpen.value ? 'nav-hidden' : ''}`}>
       <div class="h-[68px] flex items-center justify-between gap-3">
-        <a href="/" class="font-mono text-base font-semibold text-ink no-underline flex items-center gap-2 shrink-0" onClick$={closeMenu}>
+        <Link href="/" class="font-mono text-base font-semibold text-ink no-underline flex items-center gap-2 shrink-0" onClick$={closeMenu}>
           <span class="text-pri">&lt;</span>Randi<span class="text-pri">/&gt;</span>
-        </a>
+        </Link>
 
         <ul class="hidden md:flex items-center gap-1 list-none">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 class={`text-[13px] font-medium no-underline px-3.5 py-1.5 rounded-lg transition-[color,background] duration-200 hover:text-pri hover:bg-pri/8 ${isActive(l.href) ? 'text-pri bg-pri/8' : 'text-ink-2'}`}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -105,9 +105,9 @@ export default component$(() => {
 
           <LanguageSwitcher />
 
-          <a href={isHome ? '#contact' : '/#contact'} class="hidden md:inline-flex text-[13px] font-semibold text-pri no-underline px-[18px] py-2 border border-pri/30 rounded-lg transition-all hover:bg-pri/10 hover:border-pri hover:scale-105">
+          <Link href={isHome ? '#contact' : '/#contact'} class="hidden md:inline-flex text-[13px] font-semibold text-pri no-underline px-[18px] py-2 border border-pri/30 rounded-lg transition-all hover:bg-pri/10 hover:border-pri hover:scale-105">
             {text(locale.value, 'Kontak', 'Contact')}
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -134,7 +134,7 @@ export default component$(() => {
 
           <div class="relative grid gap-1.5">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick$={closeMenu}
@@ -158,12 +158,12 @@ export default component$(() => {
                 <svg class="h-4 w-4 text-ink-3 transition-transform group-hover:translate-x-0.5 group-hover:text-pri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
             ))}
           </div>
 
           <div class="relative mt-2">
-            <a
+            <Link
               href={isHome ? '#contact' : '/#contact'}
               onClick$={closeMenu}
               class="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-pri px-4 py-3 text-sm font-extrabold text-bg no-underline transition-all hover:-translate-y-0.5"
@@ -172,7 +172,7 @@ export default component$(() => {
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
               {text(locale.value, 'Hubungi Saya', 'Contact Me')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

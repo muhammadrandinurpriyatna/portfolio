@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { type DocumentHead, routeLoader$, useLocation } from '@builder.io/qwik-city';
+import { Link, type DocumentHead, routeLoader$, useLocation } from '@builder.io/qwik-city';
 import { BLOG_POSTS } from '../../../data/blog';
 import { text, useLocale } from '../../../contexts/locale-context';
 import { breadcrumbSchema, buildSeoHead } from '../../../utils/seo';
@@ -20,9 +20,9 @@ export default component$(() => {
       <div class="max-w-[1100px] mx-auto px-6 text-center pt-[140px]">
         <h1 class="text-[80px] font-extrabold text-ink mb-4">404</h1>
         <p class="text-ink-2 mb-8">{text(locale.value, 'Artikel tidak ditemukan.', 'Article not found.')}</p>
-        <a href="/blog" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5">
+        <Link href="/blog" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5">
           ← Kembali ke Blog
-        </a>
+        </Link>
       </div>
     );
   }
@@ -35,12 +35,12 @@ export default component$(() => {
       {/* Page header */}
       <div class="pt-[100px] pb-10 bg-bg border-b border-bdr">
         <div class="max-w-[1100px] mx-auto px-6">
-          <a href="/blog" class="inline-flex items-center gap-2 text-[13px] text-ink-3 no-underline font-mono mb-6 transition-all group hover:text-sa">
+          <Link href="/blog" class="inline-flex items-center gap-2 text-[13px] text-ink-3 no-underline font-mono mb-6 transition-all group hover:text-sa">
             <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5M12 5l-7 7 7 7" />
             </svg>
             {text(locale.value, 'Semua Artikel', 'All Articles')}
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -82,12 +82,12 @@ export default component$(() => {
 
           {/* Footer */}
           <div class="flex justify-between items-center pt-10 mt-10 border-t border-bdr flex-wrap gap-4">
-            <a href="/blog" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5">
+            <Link href="/blog" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 no-underline transition-all hover:border-pri hover:text-pri hover:-translate-y-0.5">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M19 12H5M12 5l-7 7 7 7" />
               </svg>
               {text(locale.value, 'Kembali ke Blog', 'Back to Blog')}
-            </a>
+            </Link>
             <div class="flex items-center gap-2.5">
               <span class="text-[13px] text-ink-3">{text(locale.value, 'Bagikan:', 'Share:')}</span>
               <a
@@ -125,7 +125,7 @@ export default component$(() => {
             <h2 class="text-[20px] font-bold text-ink mb-7">{text(locale.value, 'Artikel Lainnya', 'More Articles')}</h2>
             <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
               {others.map((post) => (
-                <a key={post.slug} href={`/blog/${post.slug}`} class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 hover:-translate-y-1.5 hover:border-sa/40 hover:shadow-card group">
+                <Link key={post.slug} href={`/blog/${post.slug}`} class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 hover:-translate-y-1.5 hover:border-sa/40 hover:shadow-card group">
                   <div class={`relative h-[140px] flex items-center justify-center overflow-hidden shrink-0 ${post.grad}`}>
                     <span class="text-[44px] z-[1] transition-transform duration-500 group-hover:scale-110">{post.emoji}</span>
                     <span class="absolute bottom-2.5 left-3 font-mono text-[10px] uppercase tracking-[1px] px-2 py-0.5 rounded bg-black/35 text-white/90 backdrop-blur border border-white/12 z-[1]">{locale.value === 'id' ? post.category : post.categoryEn}</span>
@@ -138,7 +138,7 @@ export default component$(() => {
                     <h3 class="text-[15px] font-bold text-ink leading-[1.35] transition-colors group-hover:text-sa">{locale.value === 'id' ? post.title : post.titleEn}</h3>
                     <p class="text-[13px] text-ink-2 leading-[1.6] flex-1 line-clamp-3">{locale.value === 'id' ? post.excerpt : post.excerptEn}</p>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

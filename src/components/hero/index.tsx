@@ -1,4 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { text, useLocale } from "../../contexts/locale-context";
 
 export default component$(() => {
@@ -181,7 +182,7 @@ export default component$(() => {
           </p>
 
           <div class="flex gap-3.5 flex-wrap justify-center lg:justify-start mb-11 animate-fade-up [animation-delay:.5s]">
-            <a
+            <Link
               href="#contact"
               class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold bg-grad text-[#0a0a0a] cursor-pointer no-underline border-0 transition-all hover:scale-105 hover:shadow-[0_10px_28px_rgb(var(--pri)/0.35)]"
             >
@@ -195,13 +196,13 @@ export default component$(() => {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#experience"
               class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-semibold bg-transparent border border-bdr-hi text-ink-2 cursor-pointer no-underline transition-all hover:border-pri hover:text-pri hover:scale-105"
             >
               {text(locale.value, "Lihat Pengalaman", "View Experience")}
-            </a>
+            </Link>
           </div>
 
           <div class="flex justify-center lg:justify-start gap-2.5 animate-fade-up [animation-delay:.6s]">
@@ -261,7 +262,7 @@ export default component$(() => {
         <div class="w-full max-w-[520px] mx-auto flex flex-col items-center gap-6 lg:gap-9 animate-[fadeIn_1s_ease_both_.3s]">
           <div class="relative w-[min(480px,92vw)] h-[min(480px,70vh)] animate-scale-in [animation-delay:.4s]">
             <img
-              src="/images/profile-photo.png"
+              src="/images/profile-photo.webp"
               alt="Muhammad Randi Nur Priyatna"
               width="480"
               height="480"

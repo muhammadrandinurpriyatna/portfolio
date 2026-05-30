@@ -1,4 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { Link } from '@builder.io/qwik-city';
 import { BLOG_POSTS } from '../../data/blog';
 import { text, useLocale } from '../../contexts/locale-context';
 
@@ -42,12 +43,12 @@ export default component$(() => {
             <span class="font-mono text-[11px] tracking-[3px] uppercase text-sa block mb-2.5">Blog</span>
             <h2 class="text-[clamp(26px,4vw,40px)] font-extrabold text-ink leading-[1.15]">{text(locale.value, 'Tulisan Terbaru', 'Latest Posts')}</h2>
           </div>
-          <a href="/blog" class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-sa/10 border border-sa/25 text-sa no-underline transition-all hover:bg-sa hover:text-bg hover:border-sa hover:-translate-y-0.5">
+          <Link href="/blog" class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-sa/10 border border-sa/25 text-sa no-underline transition-all hover:bg-sa hover:text-bg hover:border-sa hover:-translate-y-0.5">
             {text(locale.value, 'Lihat selengkapnya', 'View more')}
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
         <div class="w-[52px] h-[3px] bg-sa rounded-sm mb-16 reveal d-200" />
 
@@ -55,7 +56,7 @@ export default component$(() => {
           <div>
             <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
               {latest.map((post, i) => (
-                <a
+                <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
                   class="bg-surf border border-bdr rounded-[18px] overflow-hidden flex flex-col no-underline text-inherit transition-all duration-300 hover:-translate-y-1.5 hover:border-sa/40 hover:shadow-card reveal-scale group"
@@ -78,7 +79,7 @@ export default component$(() => {
                       ))}
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
